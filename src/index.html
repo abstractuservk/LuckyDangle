@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LuckyDangle for Windows</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Full transparent canvas for rope, charms and animations -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Anchor Knob for moving the dangle along top edge -->
+  <div id="anchorHandle" title="Drag to move dangle position">
+    <div class="grip"></div>
+  </div>
+
+  <!-- Subtle Settings toggle button -->
+  <button id="menuToggleBtn" title="LuckyDangle Settings">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+    </svg>
+  </button>
+
+  <!-- Interactive Settings Drawer -->
+  <div id="settingsPanel">
+    <div class="panel-header">
+      <div class="panel-title">
+        <span>✨</span> LuckyDangle
+      </div>
+      <button id="closeSettingsBtn" class="close-btn">&times;</button>
+    </div>
+
+    <!-- Charm Selector -->
+    <div class="section-label">Choose Talisman</div>
+    <div class="charms-grid">
+      <div class="charm-card active" data-charm="nazar">
+        <div class="icon">🧿</div>
+        <div class="name">Evil Eye</div>
+      </div>
+      <div class="charm-card" data-charm="nimbuMirchi">
+        <div class="icon">🌶️</div>
+        <div class="name">Nimbu Mirchi</div>
+      </div>
+      <div class="charm-card" data-charm="daruma">
+        <div class="icon">🎎</div>
+        <div class="name">Daruma</div>
+      </div>
+      <div class="charm-card" data-charm="luckyCoin">
+        <div class="icon">🪙</div>
+        <div class="name">Lucky Coin</div>
+      </div>
+      <div class="charm-card" data-charm="windChime">
+        <div class="icon">🎐</div>
+        <div class="name">Wind Chime</div>
+      </div>
+      <div class="charm-card" data-charm="custom">
+        <div class="icon">🖼️</div>
+        <div class="name">Custom</div>
+      </div>
+    </div>
+
+    <!-- Custom Image Upload Section -->
+    <div id="customImageSection">
+      <div id="dropzone" class="dropzone">
+        Click or drag custom PNG here
+      </div>
+      <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    </div>
+
+    <!-- String Length Slider -->
+    <div class="control-group">
+      <div class="control-header">
+        <span>Thread Length</span>
+        <span id="lengthVal">Medium</span>
+      </div>
+      <input type="range" id="lengthSlider" class="slider" min="100" max="320" value="190">
+    </div>
+
+    <!-- Physics Sway Slider -->
+    <div class="control-group">
+      <div class="control-header">
+        <span>Sway Momentum</span>
+        <span id="swayVal">Playful</span>
+      </div>
+      <input type="range" id="swaySlider" class="slider" min="0.97" max="0.997" step="0.001" value="0.992">
+    </div>
+
+    <!-- Sound Toggle -->
+    <div class="toggle-row">
+      <span>Sound Effects</span>
+      <label class="switch">
+        <input type="checkbox" id="soundToggle" checked>
+        <span class="switch-slider"></span>
+      </label>
+    </div>
+
+    <!-- Footer Controls -->
+    <div class="panel-footer">
+      <button id="centerBtn" class="btn-secondary">Reset Position</button>
+      <button id="minimizeBtn" class="btn-primary">Done</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/physics.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/charms.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

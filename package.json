@@ -1,0 +1,21 @@
+{
+  "name": "luckydangle-windows",
+  "version": "1.0.0",
+  "description": "Interactive swaying desktop charm & talisman overlay for Windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "desktop-pet",
+    "charm",
+    "physics",
+    "luckydangle",
+    "overlay"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^34.0.0"
+  }
+}
